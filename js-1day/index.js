@@ -28,3 +28,14 @@ function checkNumber(numbers) {
 }
 
 console.log(checkNumber(users[0].age));
+
+const numbers2 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+const total = numbers2.reduce((acc, cur) => acc + cur, 0);
+
+console.log(total);
+
+
+let todos = ['공부', '운동', '독서'];
+todos.push('요리');
+todos = todos.filter((item) => item !== '운동');
+console.log(todos);
