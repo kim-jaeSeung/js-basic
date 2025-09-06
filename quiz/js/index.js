@@ -28,7 +28,11 @@ let score = 0;
 const questionE1 = document.getElementById("question");
 const choiceBtns = document.querySelectorAll(".choice");
 const scoreE1 = document.getElementById("score");
+const choices = document.getElementById("choices");
+const navigationBtn = document.getElementById("navigationBtn");
+const restartDom = document.getElementById("restartDom");
 const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
 
 function loadQuestion() {
   const question = questions[currentQuestion];
@@ -43,11 +47,31 @@ choiceBtns.forEach((btn) => {
     if (e.target.textContent === questions[currentQuestion].answer) {
       score++;
     } else {
-      questionE1.textContent = "퀴즈 끝!!";
-      document.getElementById("choices").style.display = "none";
+      questionE1.textContent = "틀렸습니다.";
     }
     scoreE1.textContent = `점수 : ${score}`;
   });
 });
 
+nextBtn.addEventListener("click", () => {
+  if (currentQuestion < questions.length - 1) {
+    currentQuestion++;
+    loadQuestion();
+    if (questions.length - 1 === currentQuestion) {
+      questionE1.textContent = "퀴즈 끝!!";
+      choices.style.display = "none";
+      navigationBtn.style.display = "none";
+      restartDom.style.display = "flex";
+    }
+  }
+});
+prevBtn.addEventListener("click", () => {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    loadQuestion();
+  }
+});
+prevBtn.addEventListener("click", () => {
+  loadQuestion();
+});
 loadQuestion();
