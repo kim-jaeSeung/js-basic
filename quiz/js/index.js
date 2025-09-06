@@ -31,6 +31,7 @@ const scoreE1 = document.getElementById("score");
 const choices = document.getElementById("choices");
 const navigationBtn = document.getElementById("navigationBtn");
 const restartDom = document.getElementById("restartDom");
+const restartBtn = document.getElementById("restartBtn");
 const nextBtn = document.getElementById("nextBtn");
 const prevBtn = document.getElementById("prevBtn");
 
@@ -71,7 +72,13 @@ prevBtn.addEventListener("click", () => {
     loadQuestion();
   }
 });
-prevBtn.addEventListener("click", () => {
+restartBtn.addEventListener("click", () => {
+  currentQuestion = 0;
+  score = 0;
+  scoreE1.textContent = `점수 : ${score}`;
+  choices.style.display = "block";
+  navigationBtn.style.display = "block";
+  restartDom.style.display = "none";
   loadQuestion();
 });
 loadQuestion();
