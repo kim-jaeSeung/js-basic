@@ -28,3 +28,26 @@ let score = 0;
 const questionE1 = document.getElementById("question");
 const choiceBtns = document.querySelectorAll(".choice");
 const scoreE1 = document.getElementById("score");
+const nextBtn = document.getElementById("nextBtn");
+
+function loadQuestion() {
+  const question = questions[currentQuestion];
+  questionE1.textContent = question.question;
+  choiceBtns.forEach((btn, index) => {
+    btn.textContent = question.choices[index];
+  });
+}
+
+choiceBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    if (e.target.textContent === questions[currentQuestion].answer) {
+      score++;
+    } else {
+      questionE1.textContent = "퀴즈 끝!!";
+      document.getElementById("choices").style.display = "none";
+    }
+    scoreE1.textContent = `점수 : ${score}`;
+  });
+});
+
+loadQuestion();
