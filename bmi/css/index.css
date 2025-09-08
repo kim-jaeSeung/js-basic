@@ -1,0 +1,26 @@
+#bmi-container {
+  width: 250px;
+  margin: 50px auto;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+}
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+}
+
+input {
+  height: 30px;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 8px 12px;
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
