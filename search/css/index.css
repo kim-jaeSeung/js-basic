@@ -1,0 +1,12 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+#searchInput {
+  width: 200px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+.item {
+  padding: 5px 0;
+}
