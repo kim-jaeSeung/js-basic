@@ -2,7 +2,7 @@ const boardElement = document.getElementById("board");
 const statusElement = document.getElementById("status");
 const resetBtn = document.getElementById("resetBtn");
 
-let board = Array(9).fill(null);
+let board = Array(16).fill(null);
 let currentPlayer = "X";
 let gameActive = true;
 
@@ -10,7 +10,7 @@ function renderBoard() {
   boardElement.innerHTML = "";
   board.forEach((value, index) => {
     const btn = document.createElement("button");
-    btn.calssName = "cell";
+    btn.className = "cell";
     btn.textContent = value ? value : "";
     btn.disabled = value || !gameActive;
     btn.addEventListener("click", () => handleCellClick(index));
@@ -20,14 +20,15 @@ function renderBoard() {
 
 // 승리 조건
 const winPatterns = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6],
+  [0, 1, 2, 3],
+  [4, 5, 6, 7],
+  [8, 9, 10, 11],
+  [0, 4, 8, 12],
+  [1, 5, 9, 13],
+  [2, 6, 10, 14],
+  [3, 7, 11, 15],
+  [0, 4, 8, 12],
+  [2, 4, 6, 14],
 ];
 
 function checkWinner() {
@@ -59,7 +60,7 @@ function handleCellClick(index) {
 }
 
 resetBtn.addEventListener("click", () => {
-  board = Array(9).fill(null);
+  board = Array(16).fill(null);
   currentPlayer = "X";
   gameActive = true;
   statusElement.textContent = `플레이어 ${currentPlayer} 차례`;
